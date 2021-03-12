@@ -13,25 +13,31 @@ public class GuiaIntegradores {
 	public void palabrasYcaracteres()
 	{
 		char caracter;
-		
+
 		int contadorA = 0;
 		int contadorE = 0;
 		int contadorI = 0;
 		int contadorO = 0;
 		int contadorU = 0;
 		int contadorPalabras = 0;
-		int palabrasMasLarga = 0;
+		int palabraMasLarga = 0;
 		int contadorCaracteres = 0;
 		
 		Scanner sc= new Scanner(System.in);
 		
 		System.out.println("Ingrese caracteres, un punto para finalizar.");
-		caracter = sc.next().charAt(0);
+		/* Para leer un char habia escrito sc.next().charAt(0); 
+		 * La funcion next() lee hasta donde encuentra un espacio,
+		 * La funcion nextLine() lee hasta donde encuentra un enter,
+		 * Para lo que quiero hacer en este caso necesito usar nextLine()
+		 */
+		
+		caracter = sc.nextLine().charAt(0);
 		contadorCaracteres++;
 		
 		while(caracter != '.')
 		{
-			System.out.println("Ingreso el caracter " + caracter);
+			
 //			if((caracter == 'a') || (caracter == 'A'))
 //			{
 //				contadorA++;
@@ -77,16 +83,26 @@ public class GuiaIntegradores {
 					break;
 				case ' ':
 					contadorPalabras++;
-					if(palabrasMasLarga < contadorCaracteres)
+					if(palabraMasLarga < contadorCaracteres)
 					{
-						palabrasMasLarga = contadorCaracteres;
+						palabraMasLarga = contadorCaracteres;
 					}
 					contadorCaracteres = 0;
 					break;
 			}
-			
-			caracter = sc.next().charAt(0);
-			contadorCaracteres++;
+			try //este try lo agregue para poder poner si me equivoco varias veces enter y que no se detenga la ejecucion del programa
+			{
+				caracter = sc.nextLine().charAt(0);//no puede leer el caracter en la posicion 0 si ingreso un enter
+				if ((caracter != '.') && (caracter != ' '))
+				{
+					contadorCaracteres++;
+				}
+				System.out.println("contadorCaracteres " + contadorCaracteres); 
+			}
+			catch(Exception ex){
+				
+			}
+
 		}
 		
 		System.out.println("Ingresaron " + contadorA + " letras A");
@@ -95,6 +111,6 @@ public class GuiaIntegradores {
 		System.out.println("Ingresaron " + contadorO + " letras O");
 		System.out.println("Ingresaron " + contadorU + " letras U");
 		System.out.println("La cantidad de palabras es " + (contadorPalabras + 1));
-		System.out.println("La cantidad de letras de la palabra mas larga es " + palabrasMasLarga);
+		System.out.println("La cantidad de letras de la palabra mas larga es " + palabraMasLarga);
 	}
 }
