@@ -3,6 +3,88 @@ package Ejercicios;
 import java.util.Scanner;
 
 public class GuiaIntegradores {
+	public void ejercicio4()
+	{
+		int cantidadIntegrantes = 0;
+		char tipoVivienda;
+		String nomYApellido;
+		short edad;
+		char sexo;
+		char nivelEstudios;
+		char indicador;
+		Scanner sc= new Scanner(System.in);
+		int i;
+		
+
+		
+		while(cantidadIntegrantes >= 0)
+		{
+			System.out.println("ingrese la cantidad de integrantes");
+			cantidadIntegrantes = sc.nextInt();
+			System.out.println("ingrese el tipo de vivienda");
+			tipoVivienda = sc.next().charAt(0);
+			
+			for(i = 0; i< cantidadIntegrantes; i++)
+			{
+				System.out.println("ingrese el nombre y apellido");
+				nomYApellido = sc.next();
+				System.out.println("ingrese la edad");
+				edad = sc.nextShort();
+				System.out.println("ingrese el sexo");
+				sexo = sc.next().charAt(0);
+				System.out.println("ingrese el nivel de estudios: N, P, S, T, U");
+				nivelEstudios = sc.next().charAt(0);
+				System.out.println("ingrese si esta completo o no: C, I");
+				indicador = sc.next().charAt(0);
+				
+				if(((nivelEstudios == 'P') || (nivelEstudios == 'p')) && ((indicador == 'C') || (indicador == 'c')))
+				{
+					System.out.print("--------------------------------------------------");
+					System.out.print("nombre y apellido ");
+					System.out.print("edad ");
+					System.out.print("sexo ");
+					System.out.print("tipo de vivienda  ");
+					
+					System.out.print(nomYApellido + " ");
+					System.out.print(edad + " ");
+					System.out.print(sexo + " " );
+					System.out.print(tipoVivienda + " ");
+					System.out.println("--------------------------------------------------");
+				}
+			}
+		}
+	}
+	public void contador()
+	{
+		int contador = 0;
+		int contadorPares = 0;
+		int contadorMultiplos = 0;
+		
+		for(int i = 0; i< 20; i++)
+		{
+			contador++;
+			
+			if((i%3) == 0)
+			{
+				contadorPares++;
+			}
+		}
+	
+		int n = 0;
+		while(contadorMultiplos < 5)
+		{
+			if((n%2) == 0)
+			{
+				contadorMultiplos++;
+				System.out.println(contadorMultiplos);
+			}
+			n++;
+		}
+		
+		System.out.println(contador);
+		System.out.println(contadorPares);
+	}
+	
 	/*
 	 * 2- Se ingresan caracteres que conforman una oración, cada palabra está separada por un espacio en blanco, la oración finaliza con un punto.
 	 Se pide mostrar por pantalla:

@@ -2,6 +2,12 @@ package Ejercicios;
 
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 public class Guia1 {
 	
 //falta el ejercicio 12
@@ -322,5 +328,81 @@ public class Guia1 {
 			System.out.println("Ingreso un valor inesperado");
 		}
 
+	}
+	public void ejercicio1GUI() {
+		JPanel panel = new JPanel();
+		JFrame frame = new JFrame();//esta la ventana
+		frame.setSize(500, 400); 
+		frame.setLocationRelativeTo(null);//para centrar la ventana la crearla
+		frame.setTitle("CALCULADORA");
+		frame.add(panel);
+		frame.setVisible(true);
+		panel.setLayout(null);
+		
+		JLabel lblNumero1 = new JLabel("Ingrese un numero");
+		lblNumero1.setBounds(20, 60, 150, 25);
+		panel.add(lblNumero1);
+		
+		JTextField txtNumero1 = new JTextField("0");
+		txtNumero1.setBounds(180, 60, 150, 25);
+		panel.add(txtNumero1);
+		
+		JLabel lblNumero2 = new JLabel("Ingrese otro numero");
+		lblNumero2.setBounds(20, 120, 150, 25);
+		panel.add(lblNumero2);
+		
+		JTextField txtNumero2 = new JTextField("0");
+		txtNumero2.setBounds(180,120, 150, 25);
+		panel.add(txtNumero2);
+		
+		JTextField txtResultado = new JTextField();
+		txtResultado.setBounds(20, 250, 150, 25);
+		panel.add(txtResultado);
+		
+		JButton btnSumar = new JButton("+");
+		btnSumar.setBounds(20, 180, 50, 50);
+		panel.add(btnSumar);
+		
+		btnSumar.addActionListener(e -> {
+			txtResultado.setText(sumar(txtNumero1.getText(), txtNumero2.getText()));
+		});
+		
+		JButton btnRestar = new JButton("-");
+		btnRestar.setBounds(80, 180, 50, 50);
+		panel.add(btnRestar);
+		
+		JButton btnMultiplicar = new JButton("*");
+		btnMultiplicar.setBounds(140, 180, 50, 50);
+		panel.add(btnMultiplicar);
+		
+		JButton btnDividir = new JButton("/");
+		btnDividir.setBounds(200, 180, 50, 50);
+		panel.add(btnDividir);
+		
+		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setBounds(260, 180, 150, 50);
+		btnLimpiar.addActionListener(e -> {
+			txtResultado.setText("");
+			txtNumero1.setText("");
+			txtNumero2.setText("");
+			
+		});
+		panel.add(btnLimpiar);
+
+	}
+
+	private String sumar(String text, String text2) 
+	{
+		try
+		{
+			int numero1 = Integer.parseInt(text);
+			int numero2 = Integer.parseInt(text2);
+			
+			return Integer.toString(numero1 + numero2);
+		}
+		catch(Exception ex)
+		{
+			return "Error";
+		}
 	}
 }

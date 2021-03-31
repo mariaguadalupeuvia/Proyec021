@@ -7,18 +7,19 @@ public class Principal21 {
 		Guia2 guia2 = new Guia2();
 		GuiaIntegradores guiaI = new GuiaIntegradores();
 		
-		try
-		{
-//			guia1.ejercicio1();
+//		try
+//		{
+			guia1.ejercicio1GUI();
 //			guia1.ejercicio2();
 //			guia2.factorial(10);
 //			guia2.mcd(120, 60);
-			guiaI.palabrasYcaracteres();
-		}
-		catch(Exception ex)
-		{
-			System.out.println("ocurrio un error inesperado, verifique los datos");
-		}
+			//guiaI.palabrasYcaracteres();
+			//guiaI.ejercicio4();
+//		}
+//		catch(Exception ex)
+//		{
+//			System.out.println("ocurrio un error inesperado, verifique los datos");
+//		}
 	}
 
 }
